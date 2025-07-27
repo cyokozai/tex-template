@@ -1,0 +1,10 @@
+.env
+.gitignore
+Dockerfile
+docker-compose.yaml
+compose.yaml
+README.md
+LICENSE
+
+.DS_Store*
+*.DS_Store

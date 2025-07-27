@@ -1,0 +1,90 @@
+\documentclass[12pt,a4paper]{jsarticle}
+
+\usepackage[utf8]{inputenc}     % 文字コードをUTF-8に指定
+\usepackage[dvipdfmx]{graphicx} % グラフィクスの利用宣言
+\usepackage{multirow}           % 表でのセル結合
+\usepackage{dcolumn}            % 表での小数点揃え
+\usepackage{amssymb}            % 数学記号などの利用宣言
+\usepackage{mathtools}          % 数式の記述を助けるパッケージ
+\usepackage{amsmath}            % 数式の記述を助けるパッケージ
+\usepackage{siunitx}            % SI単位系の利用宣言
+\usepackage{bm}                 % 太字数式文字の利用に関する宣言
+\usepackage{float}              % 図表の位置を固定する
+\usepackage{url}                % URLの記述を助けるパッケージ
+\usepackage{listings}           % ソースコードの記述を助けるパッケージ
+\usepackage{jvlisting}          % ソースコードの日本語対応
+\usepackage{xcolor}             % 色の指定
+\usepackage{tikz}               % 図の描画を助けるパッケージ
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{これはサンプルです}
+\author{0000000 \quad ほげほげ}
+\date{2000年00月00日}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% ここから本体
+\begin{document}
+
+\pagenumbering{arabic}           % ページ番号をアラビア数字になおす
+\renewcommand{\figurename}{図}    % キャプションをFigureから図にする
+\renewcommand{\tablename}{表}     % キャプションをTableから表にする
+\numberwithin{equation}{section} % 式番号をセクション毎にリセットする
+\maketitle                       % タイトルを出力
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ↓ EDIT ↓ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{演習問題 7.1}
+
+ここに，$d \times n$ の行列 $\mathbf{X}$ がある (ただし $d \geq n$)．
+行列 $\mathbf{X}^{t}\mathbf{X}$ の固有値とと固有ベクトルをそれぞれ $\lambda_{i}, \mathbf{e}_{i} \quad (i = 1, 2, \ldots, n)$ とする．
+このとき，行列 $\mathbf{X}\mathbf{X}^{t}$ の非ゼロな固有値とそれに対応する固有ベクトルは，それぞれ $\lambda_{i}, \frac{\mathbf{X}\mathbf{e}_{i}}{\sqrt{\lambda_{i}}} \quad (i = 1, 2, \ldots, d)$ となることを示す．
+
+行列 $\mathbf{X}^{t}\mathbf{X}$ を $n \times n$ の行列 $\mathbf{A}$ とし，行列 $\mathbf{X}\mathbf{X}^{t}$ を $d \times d$ の行列 $\mathbf{B}$ とする．
+行列 $\mathbf{A}$ の固有値と固有ベクトルは次のように定義される．
+\begin{equation}
+	\mathbf{A}\mathbf{e}_{i} = \lambda_{i}\mathbf{e}_{i} \quad (i = 1, 2, \ldots, n) \label{eq:7-1-1}
+\end{equation}
+ここで，行列 $\mathbf{A}$ は対称行列であるため，固有値は実数であり，固有ベクトルは直交する．
+よって，固有ベクトル $\mathbf{e}_{i}$ が正規直交基底と仮定すると，
+\begin{equation}
+	\mathbf{e}_{i}^{t}\mathbf{e}_{j} = \begin{cases}
+		1 & (i = j)    \\
+		0 & (i \neq j)
+	\end{cases} \quad (i, j = 1, 2, \ldots, n)
+\end{equation}
+が成り立つ．
+ここで，式\eqref{eq:7-1-1}において，行列 $\mathbf{X}$ を両辺に左から掛けると，
+\begin{equation}
+	\mathbf{X}\mathbf{A}\mathbf{e}_{i} = \lambda_{i}\mathbf{X}\mathbf{e}_{i} \quad (i = 1, 2, \ldots, n)
+\end{equation}
+となる．
+$\mathbf{A} = \mathbf{X}^{t}\mathbf{X}$ を代入すると，
+\begin{equation}
+	\mathbf{X}\mathbf{X}^{t}\mathbf{X}\mathbf{e}_{i} = \lambda_{i}\mathbf{X}\mathbf{e}_{i} \quad (i = 1, 2, \ldots, n).
+\end{equation}
+ここで，行列 $\mathbf{X}\mathbf{X}^{t}$ は行列 $\mathbf{B}$ であるため，
+\begin{equation}
+	\mathbf{B}\mathbf{X}\mathbf{e}_{i} = \lambda_{i}\mathbf{X}\mathbf{e}_{i} \quad (i = 1, 2, \ldots, n).
+\end{equation}
+この式は，行列 $\mathbf{B}$ の固有値と固有ベクトルの定義に一致する．
+したがって，行列 $\mathbf{B}$ の固有値は $\lambda_{i}$ であり，対応する固有ベクトルは $\mathbf{X}\mathbf{e}_{i}$ である．
+さらに，$\mathbf{X}\mathbf{e}_{i}$ のノルムを計算すると，
+\begin{equation}
+	\|\mathbf{X}\mathbf{e}_{i}\| = \sqrt{(\mathbf{X}\mathbf{e}_{i})^{t}(\mathbf{X}\mathbf{e}_{i})} = \sqrt{\mathbf{e}_{i}^{t}\mathbf{X}^{t}\mathbf{X}\mathbf{e}_{i}} = \sqrt{\lambda_{i}}.
+\end{equation}
+したがって，行列 $\mathbf{B}$ の非ゼロな固有値は $\lambda_{i}$ であり，対応する固有ベクトルは
+\begin{equation}
+	\frac{\mathbf{X}\mathbf{e}_{i}}{\|\mathbf{X}\mathbf{e}_{i}\|} = \frac{\mathbf{X}\mathbf{e}_{i}}{\sqrt{\lambda_{i}}} \quad (i = 1, 2, \ldots, n)
+\end{equation}
+となる．
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ↑ EDIT ↑ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\clearpage
+\section*{参考文献}
+\bibliography{ref} % 参考文献 ref.bib ファイルを参照
+
+\end{document}
