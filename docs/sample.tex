@@ -1,7 +1,7 @@
-\documentclass[12pt,a4paper]{jsarticle}
+\documentclass[12pt,a4paper,dvipdfmx]{jsarticle}
 
 \usepackage[utf8]{inputenc}     % 文字コードをUTF-8に指定
-\usepackage[dvipdfmx]{graphicx} % グラフィクスの利用宣言
+\usepackage{graphicx} 					% グラフィクスの利用宣言
 \usepackage{multirow}           % 表でのセル結合
 \usepackage{dcolumn}            % 表での小数点揃え
 \usepackage{amssymb}            % 数学記号などの利用宣言
@@ -35,7 +35,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ↓ EDIT ↓ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{演習問題 7.1}
+\section{タイトル}
 
 ここに，$d \times n$ の行列 $\mathbf{X}$ がある (ただし $d \geq n$)．
 行列 $\mathbf{X}^{t}\mathbf{X}$ の固有値とと固有ベクトルをそれぞれ $\lambda_{i}, \mathbf{e}_{i} \quad (i = 1, 2, \ldots, n)$ とする．
@@ -80,11 +80,17 @@ $\mathbf{A} = \mathbf{X}^{t}\mathbf{X}$ を代入すると，
 \end{equation}
 となる．
 
+\subsection{サブタイトル}
+
+論文やレポートでは，数式を本文中に組み込むことがよくあります．
+オイラーの等式 $e^{i\pi} + 1 = 0$ は，数学における最も美しい方程式の一つとされています．
+論文の引用は，例えば \text{$\setminus$ cite\{ref\}} のように行います\cite{me}．
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ↑ EDIT ↑ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\clearpage
-\section*{参考文献}
+% \clearpage
+
+\bibliographystyle{junsrt} % 参考文献スタイルを指定
 \bibliography{ref} % 参考文献 ref.bib ファイルを参照
 
 \end{document}
