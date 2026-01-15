@@ -20,41 +20,74 @@
             "name": "platex",
             "command": "platex",
             "args": [
+              "-synctex=1",
+              "-interaction=nonstopmode",
+              "-file-line-error",
               "%DOC%"
+            ]
+          },
+          {
+            "name": "pbibtex",
+            "command": "pbibtex",
+            "args": [
+              "%DOCFILE%"
             ]
           },
           {
             "name": "dvipdfmx",
             "command": "dvipdfmx",
             "args": [
-              "%DOC%"
+              "%DOCFILE%.dvi"
             ]
           }
-          // { 
-          //   "name": "latexmk", 
-          //   "command": "latexmk", 
-          //   "args": [
-          //     "%DOC%"
-          //   ], 
-          //   "env": {} 
-          // } 
         ], 
-        "latex-workshop.latex.recipes": [ 
+        "latex-workshop.latex.recipes": [
           {
-            "name": "platex -> dvipdfmx",
+            "name": "platex → pbibtex → platex → platex → dvipdfmx",
+            "tools": [
+              "platex",
+              "pbibtex",
+              "platex",
+              "platex",
+              "dvipdfmx"
+            ]
+          },
+          {
+            "name": "platex → dvipdfmx",
             "tools": [
               "platex",
               "dvipdfmx"
             ]
-          } 
-          // { 
-          //   "name": "default", 
-          //   "tools": [
-          //     "latexmk"
-          //   ] 
-          // } 
+          }
         ], 
-        "latex-workshop.formatting.latex": "latexindent", 
+        "latex-workshop.formatting.latex": "latexindent",
+        "latex-workshop.view.pdf.viewer": "tab",
+        "latex-workshop.synctex.afterBuild.enabled": true,
+        "latex-workshop.latex.autoClean.run": "onBuilt",
+        "latex-workshop.latex.autoBuild.run": "onSave",
+        "latex-workshop.latex.clean.fileTypes": [
+          "*.aux",
+          "*.bbl",
+          "*.blg",
+          "*.idx",
+          "*.ind",
+          "*.lof",
+          "*.lot",
+          "*.out",
+          "*.toc",
+          "*.acn",
+          "*.acr",
+          "*.alg",
+          "*.glg",
+          "*.glo",
+          "*.gls",
+          "*.ist",
+          "*.fls",
+          "*.log",
+          "*.fdb_latexmk",
+          "*.dvi",
+          "*.synctex.gz"
+        ],
         "latex-workshop.formatting.latexindent.args": [ 
           "-c", 
           "%DIR%/", 
@@ -63,8 +96,7 @@
           "%DIR%/latexindent.yaml", 
           "-r",
           "-m"
-        ], 
-        "latex-workshop.latex.autoBuild.run": "onSave" 
+        ]
       } 
     } 
   } 
