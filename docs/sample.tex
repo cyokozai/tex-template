@@ -1,7 +1,7 @@
 \documentclass[12pt,a4paper,dvipdfmx]{jsarticle}
 
 \usepackage[utf8]{inputenc}     % 文字コードをUTF-8に指定
-\usepackage{graphicx} 					% グラフィクスの利用宣言
+\usepackage{graphicx} 					% グラフィクスの利用宣言 (変更: dvipdfmxはdocumentclassで指定)
 \usepackage{multirow}           % 表でのセル結合
 \usepackage{dcolumn}            % 表での小数点揃え
 \usepackage{amssymb}            % 数学記号などの利用宣言
@@ -83,7 +83,8 @@ $\mathbf{A} = \mathbf{X}^{t}\mathbf{X}$ を代入すると，
 \subsection{サブタイトル}
 
 論文やレポートでは，数式を本文中に組み込むことがよくあります．
-オイラーの等式 $e^{i\pi} + 1 = 0$ は，数学における最も美しい方程式の一つとされています．
+オイラーの等式 $e^{i\pi} + 1 = 0$ は，数学における最も美しい方程式の一つとされています．\\
+\indent
 論文の引用は，例えば \text{$\setminus$ cite\{ref\}} のように行います\cite{me}．
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ↑ EDIT ↑ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
